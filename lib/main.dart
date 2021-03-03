@@ -27,6 +27,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  Artboard _riveArtboard;
+  RiveAnimationController _controller;
+
   void _togglePlay() {
     setState(() => _controller.isActive = !_controller.isActive);
   }
@@ -34,8 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
   /// Tracks if the animation is playing by whether controller is running.
   bool get isPlaying => _controller?.isActive ?? false;
 
-  Artboard _riveArtboard;
-  RiveAnimationController _controller;
   @override
   void initState() {
     super.initState();
@@ -68,6 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(8.0),
         child: SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 40),
               Text(
@@ -78,27 +81,23 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontSize: 30.0,
                 ),
               ),
-              Expanded(
-                child: ClipRect(
-                  child: Container(
-                    child: _riveArtboard == null
-                        ? const SizedBox()
-                        : Rive(artboard: _riveArtboard),
-                  ),
-                ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.75,
+                child: _riveArtboard == null
+                    ? SizedBox.shrink()
+                    : Rive(artboard: _riveArtboard),
               ),
-              SizedBox(height: 20),
+              FloatingActionButton(
+                backgroundColor: isPlaying ? Colors.red: Colors.green,
+                onPressed: _togglePlay,
+                child: isPlaying
+                    ? Icon(Icons.pause)
+                    : Icon(Icons.play_arrow),
+              ),
             ],
           ),
         ),
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: _togglePlay,
-      //   tooltip: isPlaying ? 'Pause' : 'Play',
-      //   child: Icon(
-      //     isPlaying ? Icons.pause : Icons.play_arrow,
-      //   ),
-      // ),
     );
   }
 }
