@@ -1,16 +1,13 @@
-# magnetd_rive_app
+# Magnet Rive Flutter App
 
-A new Flutter application.
+This app was created using the Flutter framework. 
 
-## Getting Started
+The animation in the app is a letter "D" which has a magnetic push and pull effect.
 
-This project is a starting point for a Flutter application.
+The asset file for the animation was created using rive(https://rive.app/)
 
-A few resources to get you started if this is your first Flutter project:
+Here is a preview of the loading screen animation 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+![loading_screen](https://user-images.githubusercontent.com/76746881/109763208-c10ed980-7c17-11eb-9a24-9d1e5e5a5631.gif)
